@@ -1,9 +1,12 @@
-const Express = require("express");
-const app = Express();
+require("dotenv").config();
+const express = require("express");
+const app = express();
 const locationMW = require("./middleware/location");
 const qpMW = require("./middleware/queryPassword");
 const trafficMW = require("./middleware/traffic");
+const pwFormMW = require("./middleware/pwform");
 
+app.set("view engine", "ejs");
 app.use(trafficMW);
 
 app.get("/", function(req, res) {
@@ -18,7 +21,7 @@ app.get("/secret", qpMW("don"), function(req, res) {
 	res.send("You discovered my hidden page!");
 });
 
-app.get("/traffic", function(req, res) {
+app.get("/traffic", pwFormMW(process.env.PASSWORD), function(req, res) {
 	res.send({
 		totalTraffic: req.totalTraffic,
 		pathTraffic: req.pathTraffic,

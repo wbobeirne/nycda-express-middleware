@@ -7,7 +7,7 @@ function queryPasswordMW(password) {
 		else {
 			next();
 		}
-	}
+	};
 }
 
 module.exports = queryPasswordMW;

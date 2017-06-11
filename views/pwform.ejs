@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Password Required</title>
+
+		<style>
+			body {
+				background: #FAFAFA;
+				padding: 20px;
+			}
+
+			form {
+				margin: 0 auto;
+				width: 220px;
+				padding: 20px;
+				background: #FFF;
+				border: 1px solid #CCC;
+				border-radius: 3px;
+			}
+
+			input,
+			button {
+				display: block;
+				width: 100%;
+			}
+
+			p {
+				color: red;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<form method="get">
+			<% if (message) { %>
+				<p><%- message %></p>
+			<% } %>
+			<input name="password" type="password" placeholder="Password"/>
+			<button>Submit</button>
+		</form>
+	</body>
+</html>

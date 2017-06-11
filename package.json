@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
     "express": "^4.15.3",
     "geoip-lite": "^1.2.1"
   }
